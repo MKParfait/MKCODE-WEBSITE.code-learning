@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Explore MKCode learning features and personalization tools."><meta name="theme-color" content="#f5f8ff">
+  <title>Features | MKCode</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css"><script src="js/data.js" defer></script><script src="js/script.js" defer></script>
+</head>
+<body data-page="features">
+  <div class="ambient ambient-one" aria-hidden="true"></div><div class="ambient ambient-two" aria-hidden="true"></div>
+  <header class="site-header">
+    <a class="brand" href="index.html" aria-label="MKCode home"><span class="brand-mark">&lt;/&gt;</span><span>MK<span class="accent">Code</span></span></a>
+    <button class="menu-toggle" id="menuToggle" aria-label="Open navigation" aria-expanded="false"><span></span><span></span><span></span></button>
+    <nav class="main-nav" id="mainNav" aria-label="Main navigation"><a class="nav-link " href="index.html" >Home</a><a class="nav-link " href="courses.html" >Courses</a><a class="nav-link " href="playground.html" >Playground</a><a class="nav-link active" href="features.html" aria-current=page>Features</a><a class="nav-link " href="about.html" >About</a><a class="nav-link " href="contact.html" >Contact</a></nav>
+    <div class="header-actions"><button class="theme-open" id="openTheme" aria-haspopup="dialog" aria-controls="themePanel" title="Customize website appearance">◐ <span>Theme</span></button><a class="header-cta" href="courses.html">Start learning <span aria-hidden="true">↗</span></a></div>
+  </header>
+  <main><section class="section-wrap section-block" id="features">
+<div class="section-heading centered reveal"><div class="eyebrow">MADE FOR YOUR PROGRESS</div><h2>More than just <span class="gradient-text">tutorials.</span></h2><p>Build understanding through practice, feedback, and steady progress.</p></div>
+<div class="feature-grid">
+<article class="feature-card reveal"><div class="feature-icon cyan-icon">⌘</div><h3>Learn step by step</h3><p>Lessons start with the essentials and gradually introduce more advanced ideas.</p><span class="feature-number">01 / LEARN</span></article>
+<article class="feature-card reveal"><div class="feature-icon purple-icon">⟨/⟩</div><h3>Practise as you go</h3><p>Try examples in the built-in playground and see what your code does.</p><span class="feature-number">02 / BUILD</span></article>
+<article class="feature-card reveal"><div class="feature-icon blue-icon">↗</div><h3>Track your progress</h3><p>Mark lessons complete and your progress stays saved in this browser.</p><span class="feature-number">03 / GROW</span></article>
+</div>
+</section><section class="section-wrap section-block extra-content"><div class="section-heading"><div><div class="eyebrow">DESIGNED FOR LEARNERS</div><h2>Tools that support your <span class="gradient-text">workflow.</span></h2><p>MKCode combines a focused learning space with practical tools for trying ideas.</p></div></div><div class="feature-detail-grid"><article class="feature-detail"><div class="feature-icon cyan-icon">⌕</div><div><h3>Find lessons faster</h3><p>Search course titles and lesson topics, then filter paths by web development, programming, or developer tools.</p></div></article><article class="feature-detail"><div class="feature-icon purple-icon">✓</div><div><h3>Track completed lessons</h3><p>Mark a lesson complete and view course progress. Your progress is stored locally in your browser.</p></div></article><article class="feature-detail"><div class="feature-icon blue-icon">⌘</div><div><h3>Practise in one place</h3><p>Try HTML, CSS, and JavaScript examples in the built-in playground without setting up a project first.</p></div></article><article class="feature-detail"><div class="feature-icon green-icon">◐</div><div><h3>Personalize the interface</h3><p>Choose a light or dark palette, select an accent color, adjust font style and text size, and change card shapes.</p></div></article><article class="feature-detail"><div class="feature-icon orange-icon">▣</div><div><h3>Use it on different screens</h3><p>Responsive layouts adapt to desktop, tablet, and phone screens, while mobile navigation keeps links accessible.</p></div></article><article class="feature-detail"><div class="feature-icon pink-icon">↗</div><div><h3>Move from lesson to project</h3><p>Apply what you learn by building a portfolio page, landing page, calculator, quiz, or another small project.</p></div></article></div></section><section class="section-wrap section-block callout-band"><div><div class="eyebrow">MAKE IT YOURS</div><h2>Your workspace should fit your way of learning.</h2><p>Open the Theme button in the header to personalize MKCode.</p></div><button class="button button-primary" type="button" data-open-theme-inline>Customize theme <span>◐</span></button></section></main>
+  <footer class="site-footer section-wrap"><a class="brand footer-brand" href="index.html"><span class="brand-mark">&lt;/&gt;</span><span>MK<span class="accent">Code</span></span></a><p>Learn. Build. Create. <span id="currentYear"></span></p><div class="footer-links"><a href="courses.html">Courses</a><a href="playground.html">Playground</a><a href="features.html">Features</a><a href="contact.html">Contact</a></div></footer>
+  <aside class="theme-panel" id="themePanel" role="dialog" aria-modal="true" aria-labelledby="themeTitle" aria-hidden="true">
+    <div class="theme-panel-head"><div><span class="eyebrow">MAKE IT YOURS</span><h2 id="themeTitle">Appearance</h2></div><button class="theme-close" id="closeTheme" aria-label="Close appearance settings">×</button></div>
+    <p class="theme-intro">Personalize MKCode. Your choices are saved in this browser and used on every page.</p>
+    <fieldset class="theme-field"><legend>Color theme</legend><div class="theme-presets">
+      <button type="button" class="theme-preset" data-theme-choice="light"><span class="swatch swatch-light"></span>Light</button>
+      <button type="button" class="theme-preset" data-theme-choice="dark"><span class="swatch swatch-dark"></span>Dark</button>
+      <button type="button" class="theme-preset" data-theme-choice="midnight"><span class="swatch swatch-midnight"></span>Midnight</button>
+      <button type="button" class="theme-preset" data-theme-choice="purple"><span class="swatch swatch-purple"></span>Purple</button>
+      <button type="button" class="theme-preset" data-theme-choice="forest"><span class="swatch swatch-forest"></span>Forest</button>
+    </div></fieldset>
+    <div class="theme-field"><label for="accentColor">Accent color</label><div class="color-picker-row"><input id="accentColor" type="color" value="#087fba"><span>Choose your own highlight color</span></div></div>
+    <div class="theme-field"><label for="fontChoice">Font style</label><select id="fontChoice"><option value="modern">Modern (default)</option><option value="classic">Classic</option><option value="mono">Coding / monospace</option></select></div>
+    <div class="theme-field"><label for="textScale">Text size <span id="textScaleValue">100%</span></label><input id="textScale" type="range" min="90" max="115" step="5" value="100"></div>
+    <div class="theme-field"><span class="field-label">Card corners</span><div class="choice-row"><button type="button" data-corners="rounded">Rounded</button><button type="button" data-corners="square">Square</button></div></div>
+    <div class="theme-field"><span class="field-label">Interface style</span><div class="choice-row"><button type="button" data-style="soft">Soft</button><button type="button" data-style="crisp">Crisp</button></div></div>
+    <div class="theme-panel-actions"><button type="button" class="button button-secondary" id="resetTheme">Reset defaults</button><button type="button" class="button button-primary" id="doneTheme">Done</button></div>
+  </aside><div class="theme-backdrop" id="themeBackdrop"></div>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div><button class="back-to-top" id="backToTop" aria-label="Back to top">↑</button>
+</body></html>

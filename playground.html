@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Experiment with HTML, CSS, and JavaScript in the MKCode playground."><meta name="theme-color" content="#f5f8ff">
+  <title>Playground | MKCode</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css"><script src="js/data.js" defer></script><script src="js/script.js" defer></script>
+</head>
+<body data-page="playground">
+  <div class="ambient ambient-one" aria-hidden="true"></div><div class="ambient ambient-two" aria-hidden="true"></div>
+  <header class="site-header">
+    <a class="brand" href="index.html" aria-label="MKCode home"><span class="brand-mark">&lt;/&gt;</span><span>MK<span class="accent">Code</span></span></a>
+    <button class="menu-toggle" id="menuToggle" aria-label="Open navigation" aria-expanded="false"><span></span><span></span><span></span></button>
+    <nav class="main-nav" id="mainNav" aria-label="Main navigation"><a class="nav-link " href="index.html" >Home</a><a class="nav-link " href="courses.html" >Courses</a><a class="nav-link active" href="playground.html" aria-current=page>Playground</a><a class="nav-link " href="features.html" >Features</a><a class="nav-link " href="about.html" >About</a><a class="nav-link " href="contact.html" >Contact</a></nav>
+    <div class="header-actions"><button class="theme-open" id="openTheme" aria-haspopup="dialog" aria-controls="themePanel" title="Customize website appearance">◐ <span>Theme</span></button><a class="header-cta" href="courses.html">Start learning <span aria-hidden="true">↗</span></a></div>
+  </header>
+  <main><section class="section-wrap section-block" id="playground">
+<div class="section-heading reveal">
+<div><div class="eyebrow">BUILD SOMETHING REAL</div><h2>Your code. Your <span class="gradient-text">creation.</span></h2><p>Experiment with HTML, CSS, and JavaScript, then preview your result.</p></div>
+<span class="editor-badge"><span class="status-dot"></span> Browser playground</span>
+</div>
+<div class="playground reveal">
+<div class="editor-panel">
+<div class="editor-toolbar"><div class="editor-tabs"><button class="editor-tab active" data-editor="html">HTML</button><button class="editor-tab" data-editor="css">CSS</button><button class="editor-tab" data-editor="js">JS</button></div><button class="small-button" id="resetCode" title="Restore starter code">↺ Reset</button></div>
+<label class="sr-only" for="codeEditor">Code editor</label>
+<textarea aria-label="Code editor" autocapitalize="off" autocomplete="off" id="codeEditor" spellcheck="false"></textarea>
+<div class="editor-footer"><span><span class="status-dot"></span> Ready to run</span><button class="button button-primary run-button" id="runCode">▶ Run code</button></div>
+</div>
+<div class="preview-panel">
+<div class="preview-toolbar"><span><i class="preview-dot"></i> Live preview</span><button class="small-button" id="refreshPreview">↻ Refresh</button></div>
+<iframe id="previewFrame" referrerpolicy="no-referrer" sandbox="allow-scripts" title="Code preview"></iframe>
+<div class="preview-note">Your code runs in an isolated preview. Avoid entering private information.</div>
+</div>
+</div>
+<p class="playground-help"><span>TIP</span> Choose a tab to edit HTML, CSS, or JavaScript. Press <kbd>Run code</kbd> to update the preview.</p>
+</section><section class="section-wrap section-block extra-content"><div class="section-heading"><div><div class="eyebrow">PLAYGROUND GUIDE</div><h2>Experiment, observe, <span class="gradient-text">repeat.</span></h2><p>Use the editor to understand how the three core web technologies work together.</p></div></div><div class="steps-grid"><article class="info-card"><span class="step-number">HTML</span><h3>Describe the content</h3><p>Use elements such as headings, paragraphs, links, images, and buttons to give a page its structure.</p><pre class="mini-code"><code>&lt;h1&gt;Hello, world!&lt;/h1&gt;</code></pre></article><article class="info-card"><span class="step-number">CSS</span><h3>Style the page</h3><p>Change colors, spacing, layout, borders, and typography to create a visual identity.</p><pre class="mini-code"><code>h1 { color: royalblue; }</code></pre></article><article class="info-card"><span class="step-number">JS</span><h3>Add interaction</h3><p>Respond to events, update text, and make buttons or other page elements do something.</p><pre class="mini-code"><code>console.log("Hello!");</code></pre></article></div><div class="notice-card"><h3>Good playground habits</h3><ul class="check-list"><li><span>✓</span> Run small changes so it is easier to find mistakes.</li><li><span>✓</span> Keep a copy of code you want to save.</li><li><span>✓</span> Do not paste passwords, private details, or secrets into examples.</li><li><span>✓</span> Remember that this editor runs HTML, CSS, and JavaScript—not Python or Git commands.</li></ul></div></section></main>
+  <footer class="site-footer section-wrap"><a class="brand footer-brand" href="index.html"><span class="brand-mark">&lt;/&gt;</span><span>MK<span class="accent">Code</span></span></a><p>Learn. Build. Create. <span id="currentYear"></span></p><div class="footer-links"><a href="courses.html">Courses</a><a href="playground.html">Playground</a><a href="features.html">Features</a><a href="contact.html">Contact</a></div></footer>
+  <aside class="theme-panel" id="themePanel" role="dialog" aria-modal="true" aria-labelledby="themeTitle" aria-hidden="true">
+    <div class="theme-panel-head"><div><span class="eyebrow">MAKE IT YOURS</span><h2 id="themeTitle">Appearance</h2></div><button class="theme-close" id="closeTheme" aria-label="Close appearance settings">×</button></div>
+    <p class="theme-intro">Personalize MKCode. Your choices are saved in this browser and used on every page.</p>
+    <fieldset class="theme-field"><legend>Color theme</legend><div class="theme-presets">
+      <button type="button" class="theme-preset" data-theme-choice="light"><span class="swatch swatch-light"></span>Light</button>
+      <button type="button" class="theme-preset" data-theme-choice="dark"><span class="swatch swatch-dark"></span>Dark</button>
+      <button type="button" class="theme-preset" data-theme-choice="midnight"><span class="swatch swatch-midnight"></span>Midnight</button>
+      <button type="button" class="theme-preset" data-theme-choice="purple"><span class="swatch swatch-purple"></span>Purple</button>
+      <button type="button" class="theme-preset" data-theme-choice="forest"><span class="swatch swatch-forest"></span>Forest</button>
+    </div></fieldset>
+    <div class="theme-field"><label for="accentColor">Accent color</label><div class="color-picker-row"><input id="accentColor" type="color" value="#087fba"><span>Choose your own highlight color</span></div></div>
+    <div class="theme-field"><label for="fontChoice">Font style</label><select id="fontChoice"><option value="modern">Modern (default)</option><option value="classic">Classic</option><option value="mono">Coding / monospace</option></select></div>
+    <div class="theme-field"><label for="textScale">Text size <span id="textScaleValue">100%</span></label><input id="textScale" type="range" min="90" max="115" step="5" value="100"></div>
+    <div class="theme-field"><span class="field-label">Card corners</span><div class="choice-row"><button type="button" data-corners="rounded">Rounded</button><button type="button" data-corners="square">Square</button></div></div>
+    <div class="theme-field"><span class="field-label">Interface style</span><div class="choice-row"><button type="button" data-style="soft">Soft</button><button type="button" data-style="crisp">Crisp</button></div></div>
+    <div class="theme-panel-actions"><button type="button" class="button button-secondary" id="resetTheme">Reset defaults</button><button type="button" class="button button-primary" id="doneTheme">Done</button></div>
+  </aside><div class="theme-backdrop" id="themeBackdrop"></div>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div><button class="back-to-top" id="backToTop" aria-label="Back to top">↑</button>
+</body></html>
