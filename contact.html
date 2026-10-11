@@ -18,16 +18,16 @@
   </header>
   <main><section class="section-wrap contact-section section-block" id="contact">
 <div class="contact-panel reveal">
-<div><div class="eyebrow">LET'S CONNECT</div><h2>Have a question or <span class="gradient-text">an idea?</span></h2><p>Send a message to the MKCode team. This starter version opens your email app to send the message.</p></div>
-<form class="contact-form" id="contactForm">
+<div><div class="eyebrow">LET'S CONNECT</div><h2>Have a question or <span class="gradient-text">an idea?</span></h2><p>Send a message to the MKCode team. Your message will be sent directly when you submit this form.</p></div>
+<form class="contact-form" id="contactFormEmailJS">
 <div class="form-row"><label for="contactName">Your name</label><input id="contactName" maxlength="80" name="name" placeholder="Enter your name" required="" type="text"/></div>
 <div class="form-row"><label for="contactEmail">Your email</label><input id="contactEmail" maxlength="120" name="email" placeholder="you@example.com" required="" type="email"/></div>
 <div class="form-row"><label for="contactMessage">Message</label><textarea id="contactMessage" maxlength="2000" name="message" placeholder="What would you like to ask?" required="" rows="4"></textarea></div>
-<button class="button button-primary" type="submit">Prepare email <span>↗</span></button>
-<p class="form-note">No message is stored or sent by this website itself.</p>
+<button class="button button-primary" id="contactSubmit" type="submit">Send message <span>↗</span></button>
+<p class="form-note" id="contactFormStatus" role="status" aria-live="polite">Your message will be sent securely through EmailJS.</p>
 </form>
 </div>
-</section><section class="section-wrap section-block extra-content"><div class="section-heading"><div><div class="eyebrow">BEFORE YOU SEND</div><h2>Help us understand your <span class="gradient-text">question.</span></h2><p>A clear message makes it easier to understand what you need.</p></div></div><div class="steps-grid"><article class="info-card"><span class="step-number">01</span><h3>Describe the topic</h3><p>Mention the page, lesson, or feature you are asking about.</p></article><article class="info-card"><span class="step-number">02</span><h3>Include useful details</h3><p>If something is not working, describe what you expected and what happened instead. Do not include passwords or private information.</p></article><article class="info-card"><span class="step-number">03</span><h3>Check your email</h3><p>In this frontend version, the contact form prepares an email in your mail app. You still need to send it from there.</p></article></div><div class="notice-card"><h3>Other ways to explore MKCode</h3><p>Want to learn first? Visit the Courses page. Want to test a small example? Open the Playground. Want to change the look of the site? Use the Theme button in the header.</p><div class="hero-actions"><a class="button button-secondary" href="courses.html">Browse courses</a><a class="button button-secondary" href="playground.html">Try playground</a></div></div></section></main>
+</section><section class="section-wrap section-block extra-content"><div class="section-heading"><div><div class="eyebrow">BEFORE YOU SEND</div><h2>Help us understand your <span class="gradient-text">question.</span></h2><p>A clear message makes it easier to understand what you need.</p></div></div><div class="steps-grid"><article class="info-card"><span class="step-number">01</span><h3>Describe the topic</h3><p>Mention the page, lesson, or feature you are asking about.</p></article><article class="info-card"><span class="step-number">02</span><h3>Include useful details</h3><p>If something is not working, describe what you expected and what happened instead. Do not include passwords or private information.</p></article><article class="info-card"><span class="step-number">03</span><h3>Check your email</h3><p>After submitting the form, you will see a confirmation if the message is sent successfully.</p></article></div><div class="notice-card"><h3>Other ways to explore MKCode</h3><p>Want to learn first? Visit the Courses page. Want to test a small example? Open the Playground. Want to change the look of the site? Use the Theme button in the header.</p><div class="hero-actions"><a class="button button-secondary" href="courses.html">Browse courses</a><a class="button button-secondary" href="playground.html">Try playground</a></div></div></section></main>
   <footer class="site-footer section-wrap"><a class="brand footer-brand" href="index.html"><span class="brand-mark">&lt;/&gt;</span><span>MK<span class="accent">Code</span></span></a><p>Learn. Build. Create. <span id="currentYear"></span></p><div class="footer-links"><a href="courses.html">Courses</a><a href="playground.html">Playground</a><a href="features.html">Features</a><a href="contact.html">Contact</a></div></footer>
   <aside class="theme-panel" id="themePanel" role="dialog" aria-modal="true" aria-labelledby="themeTitle" aria-hidden="true">
     <div class="theme-panel-head"><div><span class="eyebrow">MAKE IT YOURS</span><h2 id="themeTitle">Appearance</h2></div><button class="theme-close" id="closeTheme" aria-label="Close appearance settings">×</button></div>
@@ -47,4 +47,38 @@
     <div class="theme-panel-actions"><button type="button" class="button button-secondary" id="resetTheme">Reset defaults</button><button type="button" class="button button-primary" id="doneTheme">Done</button></div>
   </aside><div class="theme-backdrop" id="themeBackdrop"></div>
   <div class="toast" id="toast" role="status" aria-live="polite"></div><button class="back-to-top" id="backToTop" aria-label="Back to top">↑</button>
+
+  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+  <script>
+    (() => {
+      const EMAILJS_PUBLIC_KEY = "qu9OEwdmCN_eOV-Je";
+      const EMAILJS_SERVICE_ID = "service_k6zyp9d";
+      const EMAILJS_TEMPLATE_ID = "template_6qlrelu";
+
+      emailjs.init({ publicKey: EMAILJS_PUBLIC_KEY });
+
+      const form = document.getElementById("contactFormEmailJS");
+      const status = document.getElementById("contactFormStatus");
+      const submitButton = document.getElementById("contactSubmit");
+
+      form?.addEventListener("submit", async (event) => {
+        event.preventDefault();
+        if (!form.reportValidity()) return;
+
+        status.textContent = "Sending your message…";
+        submitButton.disabled = true;
+
+        try {
+          await emailjs.sendForm(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, form);
+          status.textContent = "Your message was sent successfully. Thank you for contacting MKCode!";
+          form.reset();
+        } catch (error) {
+          console.error("EmailJS submission failed:", error);
+          status.textContent = "Sorry, your message could not be sent. Please try again in a moment.";
+        } finally {
+          submitButton.disabled = false;
+        }
+      });
+    })();
+  </script>
 </body></html>
